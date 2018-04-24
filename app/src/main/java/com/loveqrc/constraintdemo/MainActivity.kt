@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.tv_collapsing_toolbar -> {
-
+                CollapsingToolbarActivity.launchActivity(this)
             }
 
             R.id.tv_parallax_effect -> {

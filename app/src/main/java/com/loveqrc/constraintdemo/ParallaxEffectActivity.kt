@@ -11,11 +11,13 @@ import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.WindowManager
+import com.loveqrc.constraintdemo.R.id.recycler_view
 import com.loveqrc.constraintdemo.adapter.ParallaxEffectAdapter
 import kotlinx.android.synthetic.main.activity_parallax_effect.*
 import kotlinx.android.synthetic.main.item_parallax_layout.*
 
 class ParallaxEffectActivity : AppCompatActivity() {
+
     companion object {
         fun launchActivity(context: Context) {
             val intent = Intent(context, ParallaxEffectActivity::class.java)
@@ -28,9 +30,10 @@ class ParallaxEffectActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parallax_effect)
         setFullScreen()
-        val images = arrayOf(R.drawable.one_bg, R.drawable.two_bg, R.drawable.three_bg, R.drawable.fourth_bg, R.drawable.fifth_bg)
-        var layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        var snapHelper = PagerSnapHelper()
+        val images = arrayOf(R.drawable.one_bg, R.drawable.two_bg, R.drawable.three_bg,
+                R.drawable.fourth_bg, R.drawable.fifth_bg)
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        val snapHelper = PagerSnapHelper()
         snapHelper.attachToRecyclerView(recycler_view)
         recycler_view.layoutManager = layoutManager
         recycler_view.adapter = ParallaxEffectAdapter(this, images)
@@ -38,12 +41,15 @@ class ParallaxEffectActivity : AppCompatActivity() {
 
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                var manager = recyclerView!!.layoutManager as LinearLayoutManager
-                var position = manager.findFirstVisibleItemPosition()
-                Log.d("loveqrc", "Position:$position")
-                var lastPosition = manager.findLastVisibleItemPosition()
+                val manager = recyclerView!!.layoutManager as LinearLayoutManager
+                //第一个可见的item位置
+                val position = manager.findFirstVisibleItemPosition()
+                Log.d("loveqrc", "firstPosition:$position")
+                //最后一个可见的item位置
+                val lastPosition = manager.findLastVisibleItemPosition()
                 Log.d("loveqrc", "lastPosition:$lastPosition")
-                var offset = recyclerView.computeHorizontalScrollOffset()
+                //水平偏移量
+                val offset = recyclerView.computeHorizontalScrollOffset()
                 Log.d("loveqrc", "offset:$offset")
 
                 for (i in 0..lastPosition - position) {
@@ -53,7 +59,7 @@ class ParallaxEffectActivity : AppCompatActivity() {
                     val width = recyclerView.width
                     val deltaPos = offset - (position + i) * width
                     val percent = deltaPos / width.toFloat()
-                    params.guidePercent=Math.max(0.3f, Math.min(0.7f, 0.5f - percent))
+                    params.guidePercent = Math.max(0.3f, Math.min(0.7f, 0.5f - percent))
                     guideline.layoutParams = params
                 }
             }

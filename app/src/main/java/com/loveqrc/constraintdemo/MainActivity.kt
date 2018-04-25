@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.tv_parallax_effect -> {
-
+                ParallaxEffectActivity.launchActivity(this)
             }
         }
 

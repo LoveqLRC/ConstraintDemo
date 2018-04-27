@@ -21,13 +21,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CollapsingToolbarActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".ParallaxEffectActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ParallaxEffectActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ShoppingKeyFrameActivity"></activity>
     </application>
 
 </manifest>

@@ -32,7 +32,7 @@
                 android:layout_width="700dp"
                 android:layout_height="300dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/background"
+                android:src="@drawable/one_bg"
                 app:layout_constraintEnd_toEndOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="@+id/guideline" />
 

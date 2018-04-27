@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 KeyFrameAnimationActivity.launchActivity(this)
             }
             R.id.tv_two -> {
-
+                ShoppingKeyFrameActivity.launchActivity(this)
             }
             R.id.tv_collapsing_toolbar -> {
                 CollapsingToolbarActivity.launchActivity(this)
